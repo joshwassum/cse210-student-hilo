@@ -35,6 +35,5 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
 Josh Wassum
 was21005@byui.edu
