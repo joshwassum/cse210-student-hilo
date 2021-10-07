@@ -6,6 +6,7 @@ class Deck:
 
     Attributes:
     all_cards = list
+    
     """
     def __init__(self):
 
