@@ -37,3 +37,6 @@ root                    (project root folder)
 ---
 Josh Wassum
 was21005@byui.edu
+
+Shane Wocicki
+woc13001@byui.edu
