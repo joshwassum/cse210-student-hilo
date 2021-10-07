@@ -18,10 +18,14 @@ class Dealer:
 
     '''
     Methods:
-    starts game
-    ask to play again
+    starts game (larry)
+
+    ask to play again (shane)
         end game if points is 0
+
     deal cards (Brian)
-    calculate points
+        hi or low
+    
+    calculate points (brian)
         compare values and award points
     '''

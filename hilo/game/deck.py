@@ -19,5 +19,5 @@ class Deck:
 
     """Ability to deal a random card
 
-    Brian Bawden
+    Josh Wassum
     """
