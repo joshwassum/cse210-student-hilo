@@ -37,3 +37,6 @@ root                    (project root folder)
 ---
 Josh Wassum
 was21005@byui.edu
+
+Larry Copeland
+cop21004@byui.edu
