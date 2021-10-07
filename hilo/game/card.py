@@ -12,14 +12,26 @@ class Card:
     A code template that facilitates the creation of cards.
 
     Attributes:
-    suit = tuple
-    rank = tuple
-    value = values[rank]
+    suit (string): Creates a suit for a card
+    rank (string): Creates a rank for our card
+    value (int): Saves the value of our card
     """
     def __init__(self,suit,rank):
+        """The class constructor
+
+        Args:
+            self (Card): an instance of Card
+            suit (string): stores the suit of the card
+            rank (string): stores the rank of the card
+        """
         self.suit = suit
         self.rank = rank
         self.value = values[rank]
 
     def __str__(self):
+        """Allows us to print out the card object
+
+        Returns:
+            self (Card): An instance of Card
+        """
         return self.rank + " of " + self.suit
