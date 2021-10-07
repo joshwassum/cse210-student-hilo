@@ -75,7 +75,7 @@ class Dealer:
             elif self.current_card > self.deal_cards():
                 print("you lost 75 points")
                 self.total_points -= 75
-            elif self.current_card = self.deal_cards():
+            elif self.current_card == self.deal_cards():
                 self.calculate_points()
         if self.guess_hi_low().strip().lower == "l":
             if self.current_card > self.deal_cards():
@@ -84,7 +84,7 @@ class Dealer:
             elif self.current_card < self.deal_cards():
                 print("you lost 75 points")
                 self.total_points -= 75
-            elif self.current_card = self.deal_cards():
+            elif self.current_card == self.deal_cards():
                 self.calculate_points()
         print()
         print(self.total_points)
