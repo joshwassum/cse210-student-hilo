@@ -11,15 +11,32 @@ class Dealer:
     '''
 
     def __init__(self):
+        """The class constructor.
+        
+        Arg: self(Dealer): an instance of dealer
+        """
 
         self.deck = deck.Deck()
-        self.coninue_play = True
+        self.continue_play = True
         self.total_points = 300
 
-    '''
-    Methods:
-    starts game (larry)
+    
+    def start_game(self):
+        '''
+        starts game loop 
 
+        Arg: self(Dealer): an instance of dealer
+        '''
+
+        while self.keep_playing:
+            self.deck()
+            self.deal_cards()
+            self.scorew()
+        
+
+
+
+    '''
     ask to play again (shane)
         end game if points is 0
 
