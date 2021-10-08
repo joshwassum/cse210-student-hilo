@@ -1,4 +1,4 @@
-import deck
+from game.deck import Deck
 
 
 class Dealer:
@@ -16,7 +16,7 @@ class Dealer:
         Arg: self(Dealer): an instance of dealer
         """
 
-        self.deck = deck.Deck()
+        self.deck = Deck()
         self.continue_play = True
         self.total_points = 300
 
