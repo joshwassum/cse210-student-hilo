@@ -1,3 +1,16 @@
+# Tasking
+'''
+ask to play again (shane)
+    end game if points is 0
+
+deal cards (Brian)
+    hi or low
+
+calculate points (brian)
+    compare values and award points
+'''
+
+
 from game.deck import Deck
 
 
@@ -12,43 +25,29 @@ class Dealer:
 
     def __init__(self):
         """The class constructor.
-        
+
         Arg: self(Dealer): an instance of dealer
         """
 
         self.deck = Deck()
-        self.continue_play = True
+        self.keep_playing = True
         self.total_points = 300
-        self.current_card = self.deal_cards()
 
-    
+
     def start_game(self):
         '''
-        starts game loop 
+        starts game loop
 
         Arg: self(Dealer): an instance of dealer
         '''
 
         while self.keep_playing:
-            self.deck()
+            dealers_card = self.deal_cards()
+            user_guess = self.guess_hi_low(dealers_card)
             self.deal_cards()
             self.score()
-        
 
-
-
-    '''
-    ask to play again (shane)
-        end game if points is 0
-
-    deal cards (Brian)
-        hi or low
-    
-    calculate points (brian)
-        compare values and award points
-    '''
-
-    def guess_hi_low(self):
+    def guess_hi_low(self, dealers_card):
         '''
         this function will return the users guess
 
@@ -60,29 +59,24 @@ class Dealer:
         '''
         print(self.current_card)
         print()
-        self.guess = input("Will the next card be higher or lower than the current card? (h/l) ")
+        guess = input("Will the next card be higher or lower than the current card? (h/l) ")
 
-        return self.guess
+        return guess
 
     def deal_cards(self):
         '''
         This function will return the value of a new card.
         '''
-        return deck.deal_card()
+        return self.deck.deal_card()
 
-    def calculate_points(self):
+    def calculate_points(self, guess):
         '''
         compare the current card with users guess and the next card
         if the same card is drawn a new card is drawn and the function runs again.
 
         Args:
-            users guess from guess_hi_low
-            current card
-            new card from deal_cards function
-        
-        Attributes:
-            changes total points
-
+            self (Dealer): an instance of the dealer class
+            guess (str): The users guess which we will compare to the dealers card
         '''
         print()
         if self.guess_hi_low().strip().lower() == "h":

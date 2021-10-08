@@ -1,5 +1,5 @@
 import random
-from game.card import Card
+import game.card
 
 class Deck:
     """Generate a deck of 52 cards
@@ -15,9 +15,9 @@ class Deck:
         """
         self.all_cards = []
 
-        for suit in Card.suits:
-            for rank in Card.ranks:
-                created_card = Card.Card(suit,rank)
+        for suit in game.card.suits:
+            for rank in game.card.ranks:
+                created_card = game.card.Card(suit,rank)
                 self.all_cards.append(created_card)
 
 
