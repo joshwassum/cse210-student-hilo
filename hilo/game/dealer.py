@@ -32,7 +32,7 @@ class Dealer:
         self.deck = Deck()
         self.keep_playing = True
         self.total_points = 300
-
+        self.current_card = self.deal_cards()
 
     def start_game(self):
         '''
