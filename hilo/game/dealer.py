@@ -31,7 +31,7 @@ class Dealer:
         while self.keep_playing:
             self.deck()
             self.deal_cards()
-            self.scorew()
+            self.score()
         
 
 
