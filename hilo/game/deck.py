@@ -24,6 +24,9 @@ class Deck:
     def shuffle(self):
         '''
         This function shuffles our deck
+
+        Args:
+            self(Deck): an instance of Deck
         '''
         random.shuffle(self.all_cards)
 

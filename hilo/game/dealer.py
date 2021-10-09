@@ -1,16 +1,3 @@
-# Tasking
-'''
-ask to play again (shane)
-    end game if points is 0
-
-deal cards (Brian)
-    hi or low
-
-calculate points (brian)
-    compare values and award points
-'''
-
-
 from game.deck import Deck
 
 
@@ -59,9 +46,9 @@ class Dealer:
         Attributes:
         asks user to guess hi or low
         '''
-        print(dealers_card)
+        print("The dealers card is: " + str(dealers_card))
         print()
-        guess = input("Will the next card be higher or lower than the current card? (h/l) ")
+        guess = input("Will the next card be higher or lower than the dealers card? (h/l) ")
 
         return guess
 
@@ -86,32 +73,40 @@ class Dealer:
             if guess.strip().lower() == "h":
                 flag = False
                 if dealers_card.value < new_card.value:
-                    print("you won 100 points.")
+                    response = "You won 100 points."
                     self.total_points += 100
                 elif dealers_card.value > new_card.value:
-                    print("you lost 75 points")
+                    response = "You lost 75 points."
                     self.total_points -= 75
                 else:
-                    print("Draw!")
+                    response = "Draw!"
             elif guess.strip().lower() == "l":
                 flag = False
                 if dealers_card.value > new_card.value:
-                    print("you won 100 points.")
+                    response = "You won 100 points."
                     self.total_points += 100
                 elif dealers_card.value < new_card.value:
-                    print("you lost 75 points")
+                    response = "You lost 75 points."
                     self.total_points -= 75
                 else:
-                    print("Draw!")
+                    response = "Draw!"
             else:
                 guess = input("Will the next card be higher or lower than the current card? (h/l) ")
         print()
-        print(new_card)
+        print("The new card is: " + str(new_card))
         print()
-        print(self.total_points)
+        print(response)
+        print()
+        print("Your total point are: " + str(self.total_points))
         print()
 
     def another_round(self):
+        """Checks to see if the player wants to play another round.
+        Uses a while loop to force the user to enter either an h or an l.
+
+        Args:
+            self(dealer): an instance of dealer.
+        """
         flag = True
         if self.total_points <= 0:
             print("You don't have enough points to continue!")
@@ -119,6 +114,7 @@ class Dealer:
             return False
         else:
             while flag:
+
                 play_again = input("Keep playing? (y/n): ")
 
                 if play_again.strip().lower() == "y":
