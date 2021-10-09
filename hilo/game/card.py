@@ -34,4 +34,4 @@ class Card:
         Returns:
             self (Card): An instance of Card
         """
-        return self.rank + " of " + self.suit
+        return str(self.rank) + " of " + str(self.suit)
