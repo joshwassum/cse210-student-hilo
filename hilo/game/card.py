@@ -24,8 +24,8 @@ class Card:
             suit (string): stores the suit of the card
             rank (string): stores the rank of the card
         """
-        self.suit = suits
-        self.rank = ranks
+        self.suit = suit
+        self.rank = rank
         self.value = values[rank]
 
     def __str__(self):
@@ -34,4 +34,4 @@ class Card:
         Returns:
             self (Card): An instance of Card
         """
-        return str(self.rank) + " of " + str(self.suit)
+        return self.rank + " of " + self.suit

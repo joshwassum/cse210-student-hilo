@@ -1,6 +1,7 @@
 import random
 import game.card
 
+
 class Deck:
     """Generate a deck of 52 cards
 
@@ -20,6 +21,12 @@ class Deck:
                 created_card = game.card.Card(suit,rank)
                 self.all_cards.append(created_card)
 
+    def shuffle(self):
+        '''
+        This function shuffles our deck
+        '''
+        random.shuffle(self.all_cards)
+
 
     def deal_card(self):
         """Prints and then returns the cards value
@@ -27,6 +34,7 @@ class Deck:
         Args:
             self(Deck): an instance of Deck
         """
-        current_card = self.all_cards[random.randint(1, 14)]
-        print(current_card)
+
+        current_card = self.all_cards.pop()
+
         return current_card
