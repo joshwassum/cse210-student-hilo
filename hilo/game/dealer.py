@@ -12,6 +12,7 @@ class Dealer:
 
     def __init__(self):
         """The class constructor.
+        builds deck, sets the keep_playing to true, sets the total points equal 300.
 
         Arg: self(Dealer): an instance of dealer
         """
@@ -22,9 +23,12 @@ class Dealer:
 
     def start_game(self):
         '''
-        starts game loop
+        Shuffles the deck.
+        Starts game loop.
+        gets card for dealer, user guesses hi or low, then it caculate the points, asks 
+        to play again, if the deck gets to the last card it will shuffle the deck again.
 
-        Arg: self(Dealer): an instance of dealer
+          Arg: self(Dealer): an instance of dealer
         '''
         self.deck.shuffle()
         while self.keep_playing:
@@ -41,12 +45,16 @@ class Dealer:
         this function will return the users guess
 
         Arg:
+        self(Dealer): an instance of dealer
         prints card value from deal_card in deck.py
 
         Attributes:
         asks user to guess hi or low
         '''
+
         print("The dealers card is: " + str(dealers_card))
+        print()
+        print(dealers_card)
         print()
         guess = input("Will the next card be higher or lower than the dealers card? (h/l) ")
 
@@ -55,6 +63,8 @@ class Dealer:
     def deal_cards(self):
         '''
         This function will return the value of a new card.
+
+        Arg: self(Dealer): an instance of dealer
         '''
         return self.deck.deal_card()
 
@@ -66,6 +76,7 @@ class Dealer:
         Args:
             self (Dealer): an instance of the dealer class
             guess (str): The users guess which we will compare to the dealers card
+            dealers_card: Uses the dealers card to print what total points and and value of the card
         '''
         new_card = self.deal_cards()
         flag = True
@@ -87,6 +98,7 @@ class Dealer:
                     self.total_points += 100
                 elif dealers_card.value < new_card.value:
                     response = "You lost 75 points."
+
                     self.total_points -= 75
                 else:
                     response = "Draw!"
@@ -101,12 +113,13 @@ class Dealer:
         print()
 
     def another_round(self):
-        """Checks to see if the player wants to play another round.
-        Uses a while loop to force the user to enter either an h or an l.
+        '''
+        makes the program to tell player if they dont have enough points to keep playing 
+        if they get at zero.
+        while loop asks if player still wants to play if "y" it will return true,  if "n" it will return false
 
-        Args:
-            self(dealer): an instance of dealer.
-        """
+        '''
+
         flag = True
         if self.total_points <= 0:
             print("You don't have enough points to continue!")
