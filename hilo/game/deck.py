@@ -28,4 +28,5 @@ class Deck:
             self(Deck): an instance of Deck
         """
         current_card = self.all_cards[random.randint(1, 14)]
-        return current_card.value
+        print(current_card)
+        return current_card

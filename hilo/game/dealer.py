@@ -33,7 +33,6 @@ class Dealer:
         self.keep_playing = True
         self.total_points = 300
 
-
     def start_game(self):
         '''
         starts game loop
@@ -44,8 +43,8 @@ class Dealer:
         while self.keep_playing:
             dealers_card = self.deal_cards()
             user_guess = self.guess_hi_low(dealers_card)
-            self.deal_cards()
-            self.score()
+            self.calculate_points(user_guess, dealers_card)
+            self.keep_playing = self.another_round()
 
     def guess_hi_low(self, dealers_card):
         '''
@@ -57,7 +56,7 @@ class Dealer:
         Attributes:
         asks user to guess hi or low
         '''
-        print(self.current_card)
+        print(dealers_card)
         print()
         guess = input("Will the next card be higher or lower than the current card? (h/l) ")
 
@@ -69,7 +68,7 @@ class Dealer:
         '''
         return self.deck.deal_card()
 
-    def calculate_points(self, guess):
+    def calculate_points(self, guess, dealers_card):
         '''
         compare the current card with users guess and the next card
         if the same card is drawn a new card is drawn and the function runs again.
@@ -78,25 +77,44 @@ class Dealer:
             self (Dealer): an instance of the dealer class
             guess (str): The users guess which we will compare to the dealers card
         '''
+        new_card = self.deal_cards()
+        print(new_card)
         print()
-        if self.guess_hi_low().strip().lower() == "h":
-            if self.current_card < self.deal_cards():
+        if guess.strip().lower() == "h":
+            if dealers_card.value < new_card.value:
                 print("you won 100 points.")
                 self.total_points += 100
-            elif self.current_card > self.deal_cards():
+            elif dealers_card.value > new_card.value:
                 print("you lost 75 points")
                 self.total_points -= 75
-            elif self.current_card == self.deal_cards():
-                self.calculate_points()
-        if self.guess_hi_low().strip().lower == "l":
-            if self.current_card > self.deal_cards():
+            # elif dealers_card == new_card:
+            #     self.calculate_points()
+            else:
+                print("Draw!")
+        elif guess.strip().lower() == "l":
+            if dealers_card.value > new_card.value:
                 print("you won 100 points.")
                 self.total_points += 100
-            elif self.current_card < self.deal_cards():
+            elif dealers_card.value < new_card.value:
                 print("you lost 75 points")
                 self.total_points -= 75
-            elif self.current_card == self.deal_cards():
-                self.calculate_points()
+            # elif dealers_card == new_card:
+            #     self.calculate_points()
+            else:
+                print("Draw!")
         print()
         print(self.total_points)
+        print()
+
+    def another_round(self):
+        if self.total_points <= 0:
+            print("You don't have enough points to continue!")
+            print("Game Over!")
+            return False
+        else:
+            play_again = input("Keep playing? (y/n): ")
+            if play_again.strip().lower() == "y":
+                return True
+            else:
+                return False
 
