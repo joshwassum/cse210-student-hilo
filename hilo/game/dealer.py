@@ -28,7 +28,7 @@ class Dealer:
 
     def __init__(self):
         """The class constructor.
-        builds deck, sets the keep_playing to true, sets the total points equal 300
+        builds deck, sets the keep_playing to true, sets the total points equal 300.
 
         Arg: self(Dealer): an instance of dealer
         """
